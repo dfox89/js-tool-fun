@@ -1,7 +1,7 @@
 {
-  "name": "js-tool",
+  "name": "js-tool-fun",
   "version": "1.0.0",
-  "main": "dist/js-tool.min.js",
+  "main": "dist/js-tool-fun.min.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack"
   },

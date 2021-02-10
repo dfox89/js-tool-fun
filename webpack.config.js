@@ -5,9 +5,9 @@ module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
-    filename: 'js-tool.min.js',
+    filename: 'js-tool-fun.min.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'jsTool',
+    library: 'jsToolFun',
     libraryTarget: 'umd'
   },
   module: {
