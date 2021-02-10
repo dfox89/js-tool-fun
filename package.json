@@ -16,9 +16,6 @@
     "type": "git",
     "url": "https://github.com/dfox89/js-tool"
   },
-  "files": [
-    "dist/"
-  ],
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-transform-runtime": "^7.12.1",
