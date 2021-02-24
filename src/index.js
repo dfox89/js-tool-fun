@@ -24,16 +24,19 @@ export const loadCssJs = (url) => {
 
 /**
  * 获取地址栏get参数
- * @param {String} str key值
+ * @param {String} value key值
  */
-export const getUrlParams = (str) => {
-  var reg = new RegExp('(^|&)' + str + '=([^&]*)(&|$)')
-  var r = window.location.search.substr(1).match(reg)
-  if (r !== null) {
-    return unescape(r[2])
-  } else {
-    return null
+export const getUrlParams = (value) => {
+  var str = decodeURIComponent(window.location.search)
+  var query = {}
+  if (str) {
+    var arr = str.slice(1).split('&')
+    for (let i = 0; i < arr.length; i++) {
+      let temp = arr[i].split('=')
+      query[temp[0]] = temp[1]
+    }
   }
+  return value ? query[value] : query
 }
 
 /**
@@ -64,16 +67,16 @@ export const uniqueArr = () => {
 
 /**
  * 深拷贝
- * @param {Array|Object} obj 被深拷贝的
+ * @param {Array|Object} value 被深拷贝的
  */
-export const deepCopy = (obj) => {
-  var back = obj instanceof Array ? [] : {}
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        back[key] = deepCopy(obj[key])
+export const deepCopy = (value) => {
+  var back = Array.isArray(value) ? [] : {}
+  for (const key in value) {
+    if (value.hasOwnProperty(key)) {
+      if (typeof value[key] === 'object' && value[key] !== null) {
+        back[key] = deepCopy(value[key])
       } else {
-        back[key] = obj[key]
+        back[key] = value[key]
       }
     }
   }
